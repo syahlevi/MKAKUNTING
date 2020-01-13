@@ -162,6 +162,7 @@ namespace AKUNTING
 
             counts();
             loaddata();
+            Console.Out.Write("dsfdsd");
         }
 
         public void counts()
