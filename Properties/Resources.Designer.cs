@@ -83,6 +83,36 @@ namespace AKUNTING.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap database_icon_png_favpng_hgZ3vwqQctLEyY6X2EEN9band {
+            get {
+                object obj = ResourceManager.GetObject("database-icon-png-favpng-hgZ3vwqQctLEyY6X2EEN9band", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download {
+            get {
+                object obj = ResourceManager.GetObject("download", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nopicture {
+            get {
+                object obj = ResourceManager.GetObject("nopicture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap picture_id831121290 {
             get {
                 object obj = ResourceManager.GetObject("picture-id831121290", resourceCulture);

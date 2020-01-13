@@ -47,34 +47,12 @@ namespace AKUNTING
 
         private void nettprofitss_Load(object sender, EventArgs e)
         {
-            txtyear.Text = DateTime.Now.Date.ToString("yyyy");
-            txtmonth.Text = DateTime.Now.Date.ToString("MMMM");
             loaddata();
         }
         int angka = 0;
 
 
-        public void simpandata()
-        {
-            try
-            {
-                NpgsqlConnection ncon = new NpgsqlConnection(stringkoneksi.connection);
-                string masukdata = "insert into nettprofits (year,month,amount) values(:year,:month,:amount)";
-                NpgsqlCommand ncom = new NpgsqlCommand(masukdata, ncon);
-                ncom.Parameters.Add(new NpgsqlParameter("year", Convert.ToDecimal(this.txtyear.Text)));
-                ncom.Parameters.Add(new NpgsqlParameter("month", txtmonth.Text));
-                ncom.Parameters.Add(new NpgsqlParameter("amount", Convert.ToDecimal(angka)));
-
-                ncon.Open();
-                ncom.ExecuteNonQuery();
-                ncon.Close();
-                loaddata();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+      
 
         public void loaddata()
         {
@@ -83,7 +61,7 @@ namespace AKUNTING
             NpgsqlCommand ncom = new NpgsqlCommand();
             ncom.Connection = ncon;
             ncom.CommandType = CommandType.Text;
-            ncom.CommandText = "select*from nettprofits";
+            ncom.CommandText = "select*from namespace2.nettprofit";
             DataSet ds = new DataSet();
             NpgsqlDataAdapter nda = new NpgsqlDataAdapter(ncom);
             nda.Fill(ds, "akunting");
@@ -96,10 +74,7 @@ namespace AKUNTING
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            simpandata();
-        }
+      
 
         private void txtyear_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -108,6 +83,21 @@ namespace AKUNTING
             {
                 e.Handled = true;
             }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            groupBox1.Dock = DockStyle.Fill;
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            groupBox1.Dock = DockStyle.None;
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            loaddata();
         }
     }
 }

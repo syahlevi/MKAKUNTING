@@ -14,6 +14,7 @@ using CrystalDecisions.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 using Microsoft.ReportingServices;
 using System.Globalization;
+using System.IO;
 
 namespace AKUNTING
 {
@@ -40,8 +41,15 @@ namespace AKUNTING
 
 
             ReportDocument rd = new ReportDocument();
-            string paths = @"C:\Users\Acer\Documents\Visual Studio 2015\Projects\AKUNTING\CrystalReport1.rpt";
-            rd.Load(paths);
+            string[] s = { "\\bin" };
+            string filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory) + "\\CrystalReport1.rpt";
+            string patt = Application.StartupPath +"~\\CrystalReport1.rpt";
+            string path22 = Application.StartupPath.Split(s, StringSplitOptions.None)[0] + "\\Debug\\CrystalReport1.rpt";
+            string paths = @"C:\Users\Acer\Documents\Visual Studio 2015\Projects\AKUNTING VERSI 1.0\AKUNTING\bin\Debug\CrystalReport1.rpt";
+            string path2 = "~/Debug/CrystalReport1.rpt";
+            rd.Load("CrystalReport1.rpt");
+            MessageBox.Show(filePath);
+            MessageBox.Show(patt);
             //string.Format(cultureInfo, "{0:n}", totoperasional));
             rd.SetParameterValue("reportdate", printreport);
             rd.SetParameterValue("totaloperational", totoperasional.ToString("N0", new CultureInfo("en-US")));

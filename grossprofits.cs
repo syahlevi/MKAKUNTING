@@ -43,33 +43,11 @@ namespace AKUNTING
             }
         }
 
-        public void simpandata()
-        {
-             
-            try
-            {
-                NpgsqlConnection ncon = new NpgsqlConnection(stringkoneksi.connection);
-                string masukdata = "insert into grossprofits (year,month,amount) values(:year,:month,:amount)";
-                NpgsqlCommand ncom = new NpgsqlCommand(masukdata, ncon);
-                ncom.Parameters.Add(new NpgsqlParameter("year", Convert.ToDecimal(this.txtyear.Text)));
-                ncom.Parameters.Add(new NpgsqlParameter("month", txtmonth.Text));
-                ncom.Parameters.Add(new NpgsqlParameter("@amount",  Convert.ToDecimal(angka)));
-
-                ncon.Open();
-                ncom.ExecuteNonQuery();
-                ncon.Close();
-                loaddata();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+    
 
         private void grossprofits_Load(object sender, EventArgs e)
         {
-            txtyear.Text = DateTime.Now.Date.ToString("yyyy");
-            txtmonth.Text = DateTime.Now.Date.ToString("MMMM");
+          
             loaddata();
         }
         public void loaddata()
@@ -79,7 +57,7 @@ namespace AKUNTING
             NpgsqlCommand ncom = new NpgsqlCommand();
             ncom.Connection = ncon;
             ncom.CommandType = CommandType.Text;
-            ncom.CommandText = "select*from grossprofits";
+            ncom.CommandText = "select*from namespace2.grossprofit";
             DataSet ds = new DataSet();
             NpgsqlDataAdapter nda = new NpgsqlDataAdapter(ncom);
             nda.Fill(ds, "akunting");
@@ -92,10 +70,7 @@ namespace AKUNTING
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            simpandata();
-        }
+      
 
         private void txtyear_KeyPress(object sender, KeyPressEventArgs e)
         {

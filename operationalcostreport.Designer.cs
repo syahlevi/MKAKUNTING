@@ -54,8 +54,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.cbbulan = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -77,6 +77,8 @@
             this.dgreport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgreport.BackgroundColor = System.Drawing.Color.White;
+            this.dgreport.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgreport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgreport.Location = new System.Drawing.Point(3, 16);
             this.dgreport.Name = "dgreport";
@@ -110,6 +112,7 @@
             this.lbtotop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbtotop.Location = new System.Drawing.Point(163, 18);
             this.lbtotop.Name = "lbtotop";
+            this.lbtotop.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lbtotop.Size = new System.Drawing.Size(14, 20);
             this.lbtotop.TabIndex = 4;
             this.lbtotop.Text = "-";
@@ -130,6 +133,7 @@
             this.lbtotstocks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbtotstocks.Location = new System.Drawing.Point(163, 58);
             this.lbtotstocks.Name = "lbtotstocks";
+            this.lbtotstocks.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lbtotstocks.Size = new System.Drawing.Size(14, 20);
             this.lbtotstocks.TabIndex = 6;
             this.lbtotstocks.Text = "-";
@@ -150,6 +154,7 @@
             this.lbtotcash.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbtotcash.Location = new System.Drawing.Point(163, 38);
             this.lbtotcash.Name = "lbtotcash";
+            this.lbtotcash.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lbtotcash.Size = new System.Drawing.Size(14, 20);
             this.lbtotcash.TabIndex = 8;
             this.lbtotcash.Text = "-";
@@ -327,6 +332,16 @@
             this.panel5.Size = new System.Drawing.Size(760, 81);
             this.panel5.TabIndex = 19;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AKUNTING.Properties.Resources.ACCOUNTANT_512;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(95, 75);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -338,16 +353,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Operational Costs Report";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::AKUNTING.Properties.Resources.ACCOUNTANT_512;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(95, 75);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // cbbulan
             // 
             this.cbbulan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -356,7 +361,6 @@
             this.cbbulan.Name = "cbbulan";
             this.cbbulan.Size = new System.Drawing.Size(121, 21);
             this.cbbulan.TabIndex = 20;
-            this.cbbulan.SelectedIndexChanged += new System.EventHandler(this.cbbulan_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -405,7 +409,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Name = "operationalcostreport";
-            this.Text = "operationalcostreport";
+            this.Text = "Operational Cost Report";
             this.Load += new System.EventHandler(this.operationalcostreport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgreport)).EndInit();
             this.panel1.ResumeLayout(false);

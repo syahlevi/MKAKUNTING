@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AKUNTING.accounts" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIACQUAAKBCABGCpkewEF+mBUA8gBAJFHBuISZGSAg=</HashCode>
+      <FileName>accounts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.assets" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAQKBCABAABACQEAACAAAYAAwAAGACAQBAQgA=</HashCode>
+      <FileName>assets.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.cetak" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAACAACAEAEEAAACAAQASABIAAAAAAABAAAAAACA=</HashCode>
+      <FileName>cetak.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.cetak2" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAEAAAAACgQAAEAAACAAAASAAEQAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>cetak2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.Cetak3" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAEACAAQCgAAAEAAACgAAASAAQgAAAAAAAAAQAAAAE=</HashCode>
+      <FileName>Cetak3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.Class1" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Class1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.companyidentity" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/xgAAAAAICAQABIxAECKAAAaACCIABAQIGAAAUBAAAQ=</HashCode>
+      <FileName>companyidentity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.ConfigDate" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAASACABAAQACAEAACAAiIAAAAAEQAAQBAAAA=</HashCode>
+      <FileName>ConfigDate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.consume_storedprocedure_View" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>consume_storedprocedure_View.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.costs" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQKACABAABACQEAACAAEYAAQAAEAQAQBAQgA=</HashCode>
+      <FileName>costs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.CrystalReport1" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAJAAGQCAAAAAAIMAAAAAAAAAAACAgBQAAABIA=</HashCode>
+      <FileName>CrystalReport1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.CachedCrystalReport1" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAFAEAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CrystalReport1.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AKUNTING.CrystalReport2" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACgAAAAJAAAQCAAAAABIAAAAAAAAAgAACAADAAAgBgA=</HashCode>
+      <FileName>CrystalReport2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.CachedCrystalReport2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAFAEAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CrystalReport2.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AKUNTING.CrystalReport3" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACgAAAApAAAQCAAAAgAIAAIAgAEAAAAACAABBAAABgA=</HashCode>
+      <FileName>CrystalReport3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.CachedCrystalReport3" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAFAEAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CrystalReport3.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AKUNTING.datarekening" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAKAGAFgAIACAAQACEAiYAAACAGABAQBgAAQ=</HashCode>
+      <FileName>datarekening.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.debts" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQKBCABAABACQEAACAAAYgAQAAGASAQBCQgA=</HashCode>
+      <FileName>debts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.detailassets" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEIACACEDAAoEGUF1oCAACcABAoAHAAAQRAAAA=</HashCode>
+      <FileName>detailassets.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.detailcost" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEIACACEDAAoEWUFFoCAQCcABAoAHAAAQRAAAA=</HashCode>
+      <FileName>detailcost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.DetailDebts" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEIACACEDAAoEGUFFoCAACcABAoAHAAAQRAAAE=</HashCode>
+      <FileName>DetailDebts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.detailearnings" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAEIACACEDAAoEGUFFoCAACcABAoAHAAAQRAAAA=</HashCode>
+      <FileName>detailearnings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.detailrincian" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>PRAAAACIQKAAkDAwIACCAIASCAAZgAAgADACAQRgJiA=</HashCode>
+      <FileName>detailrincian.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.detailstocks" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEIACACEDAAoEGUFVoCAACcABAoAHAAAQRAAAA=</HashCode>
+      <FileName>detailstocks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.earnings" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQKBCABAAAACwEAACAAAYgAQAAGACAQBEQgA=</HashCode>
+      <FileName>earnings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.Employee" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAIIAACACCBAAoEGQEFoCpEAcAAAAAWAUCQBIAAQ=</HashCode>
+      <FileName>Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.Form1" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>14AgB//RAHkRBHBP5nGSZsEK2reghAgQpN8NgQFwWUA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.Form2" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAACAAAAEAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Form2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.Form3" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQACAAAAAAAACAAAACAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Form3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.grossprofits" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACCCABAAAACQEAACAIAAAAAAAAAAAQBAAAA=</HashCode>
+      <FileName>grossprofits.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.grossprofitsreport" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACIKAAAAEKACABAABAKQEABCAAAYEDQABHgCAQBEAIA=</HashCode>
+      <FileName>grossprofitsreport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.identitascompany" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/xgAAAYAAGKAABIgBECCIAACgCCAAAAADKAAAQBAABA=</HashCode>
+      <FileName>identitascompany.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.industriclass" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAiAAgABIKAiDBAAEACglAACAgAIAAAAAGAABQBAAAQ=</HashCode>
+      <FileName>industriclass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.insertstocks" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAEAEAAACAAAACAAAIAAAgAEAAAABAAAA=</HashCode>
+      <FileName>insertstocks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.konfigurasiodbc" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAASAAABAAAASAAABCIAAIAAAAEEAAAQBAAAA=</HashCode>
+      <FileName>konfigurasiodbc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.nettprofit" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>nettprofit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.NettProfitreport" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>4wgKACAAQKgCABAAToCQEAACAEA4EQQAAHgIEQBEAJA=</HashCode>
+      <FileName>NettProfitreport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.nettprofitss" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACACABAAIEWQEFoCAIAAAAAAACAAAQBAAAA=</HashCode>
+      <FileName>nettprofitss.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.operationalcostreport" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgBAABAAACAOAFAAhBCgkABCUEA4EIYAAHiAAQBEAIA=</HashCode>
+      <FileName>operationalcostreport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.panduan" Collapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAACAAABAAAACAAAACAAAAAAAAAAAQAQBBBAA=</HashCode>
+      <FileName>panduan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.popupcostamount" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgBAAAgAACYAABACIACAAQACCAAIAAAEAMAQACCAAgA=</HashCode>
+      <FileName>popupcostamount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.Program" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.rincian" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAABAAQLACABAAAACwAAASAAAEgAAAAAAUAQBABgE=</HashCode>
+      <FileName>rincian.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.ROLEScs" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAICAAKACABAAgEGAIFgCAAqIAAAAAGAUCYBAAAA=</HashCode>
+      <FileName>ROLEScs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.stocks" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQCBCABACBECQEAACAAAYAAwAAGACCQDAQgA=</HashCode>
+      <FileName>stocks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.stoppingretainedearning" Collapsed="true">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAACAAAACAAAIAAQAAAAAAQDAAAA=</HashCode>
+      <FileName>stoppingretainedearning.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.stringkoneksi" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAACQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>stringkoneksi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.updateamount" Collapsed="true">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>updateamount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.Welcomescreen" Collapsed="true">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAACAAAACAAA4AAAAAHAAAQBAAAA=</HashCode>
+      <FileName>Welcomescreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.zoomgambar" Collapsed="true">
+    <Position X="5.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgCAAEAAAgACCAAACAAAAAAAgAAAAAABAAAA=</HashCode>
+      <FileName>zoomgambar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.Properties.Resources" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAJEAAAAYAAAAAAAAAAAAEBAMA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AKUNTING.Properties.Settings" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

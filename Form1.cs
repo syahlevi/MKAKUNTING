@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Npgsql;
 using System.Globalization;
 using System.Data;
+using System.Net;
+using System.Diagnostics;
 
 namespace AKUNTING
 {
@@ -20,22 +22,30 @@ namespace AKUNTING
             InitializeComponent();
         }
 
-        private void cekKoneksiToolStripMenuItem_Click(object sender, EventArgs e)
+        public void cekkoneksi()
         {
+
             NpgsqlConnection ncon = new NpgsqlConnection(stringkoneksi.connection);
             try
             {
                 ncon.Open();
-                MessageBox.Show("Koneksi Berhasil");
-
+                MessageBox.Show("Koneksi Berhasil", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lbinfo.Text = "Koneksi OK";
+                lbinfo.ForeColor = Color.Green;
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-
+                MessageBox.Show(ex.Message, "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lbinfo.Text = ex.Message;
+                lbinfo.ForeColor = Color.Red;
             }
             ncon.Close();
+        }
+
+        private void cekKoneksiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cekkoneksi();
         }
 
         private void accountsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,29 +55,7 @@ namespace AKUNTING
             ac.Show();
         }
 
-        private void assetsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void costsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void debtsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void liabilitiesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void grossProfitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-          
-        }
+      
 
         private void operationalCostToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -76,10 +64,7 @@ namespace AKUNTING
             opc.Show();
         }
 
-        private void netProfitsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
+      
 
         public void countss()
         {
@@ -89,7 +74,7 @@ namespace AKUNTING
             ncon.Open();
             //var sql = "select sum(amount)  from costs where extract(year from tanggal) ='" + dttanggal.Value.Year + "' and extract(month from tanggal) ='" + dttanggal.Value.Month + "'";
 
-            var sql = "select *from profilcompany join headcompany on profilcompany.idemployee=headcompany.idemployee";
+            var sql = "select *from namespace2.profilcompany join namespace2.headcompany on namespace2.profilcompany.idemployee=namespace2.headcompany.idemployee";
             NpgsqlCommand ncom = new NpgsqlCommand(sql, ncon);
             NpgsqlDataReader dr = ncom.ExecuteReader();
 
@@ -132,14 +117,15 @@ namespace AKUNTING
 
         public void counts()
         {
+
             int a = DateTime.Now.Year;
-            int m = DateTime.ParseExact("Oktober", "MMMM", CultureInfo.CurrentCulture).Month;
+            //int m = DateTime.ParseExact(DateTime.Now.ToString("MMMM"), "MMMM", new System.Globalization.CultureInfo("id-ID")).Month;
             //int tot = Convert.ToInt32(this.lbtotop.Text);
             NpgsqlConnection ncon = new NpgsqlConnection(stringkoneksi.connection);
             ncon.Open();
             //var sql = "select sum(amount)  from costs where extract(year from tanggal) ='" + dttanggal.Value.Year + "' and extract(month from tanggal) ='" + dttanggal.Value.Month + "'";
 
-            var sql = "select sum(zipcode)  from profilcompany";
+            var sql = "select sum(zipcode)  from namespace2.profilcompany";
             NpgsqlCommand ncom = new NpgsqlCommand(sql, ncon);
             NpgsqlDataReader dr = ncom.ExecuteReader();
 
@@ -154,14 +140,13 @@ namespace AKUNTING
                 }
                 else
                 {
-                    MessageBox.Show("Anda Harus Mengisi Identitas Perusahaan Terlebih Dahulu", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                    companyidentity cpi = new companyidentity();
-                    cpi.MdiParent = this;
-                    cpi.Show();
-                    
+                    Welcomescreen ws = new Welcomescreen();
+                    ws.StartPosition = FormStartPosition.CenterScreen;
 
+                    ws.Show();
+                    this.Enabled = false;
 
 
                 }
@@ -172,6 +157,8 @@ namespace AKUNTING
         {
             counts();
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            lbdatess.Text = DateTime.Now.ToString("dddd, dd-MM-yyyy");
+            cekkoneksi();
         }
 
         private void costToolStripMenuItem_Click(object sender, EventArgs e)
@@ -309,6 +296,150 @@ namespace AKUNTING
             datarekening dr = new datarekening();
             dr.MdiParent = this;
             dr.Show();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            panduan p = new panduan();
+            p.MdiParent = this;
+            p.Show();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void cascadeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.Cascade);
+        }
+
+        private void tileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void tileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void arrangeIconToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.ArrangeIcons);
+        }
+
+        private void closeAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form[] children = this.MdiChildren;
+            for (int i = 0; i < children.Length; i++)
+            {
+                children[i].Close();
+            }
+        }
+
+        private void detailCostsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            detailcost dc = new detailcost();
+            dc.MdiParent = this;
+            dc.Show();
+        }
+
+        private void detailStocksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            detailstocks ds = new detailstocks();
+            ds.MdiParent = this;
+            ds.Show();
+        }
+
+        private void crystalReportRuntimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo sInfo = new ProcessStartInfo("http://downloads.businessobjects.com/akdlm/cr4vs2010/CRforVS_13_0_5.exe");
+            Process.Start(sInfo);
+        }
+
+        private void oDBC32BITToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"psqlodbc_11_01_0000.zip");
+
+        }
+
+        private void konfigurasiODBCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            konfigurasiodbc ko = new konfigurasiodbc();
+            ko.MdiParent = this;
+            ko.Show();
+        }
+
+        private void detailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            detailcost dc = new detailcost();
+            dc.MdiParent = this;
+            dc.Show();
+        }
+
+        private void detailsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            detailstocks ds = new detailstocks();
+            ds.MdiParent = this;
+            ds.Show();
+        }
+
+        private void detailsToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            DetailDebts dd = new DetailDebts();
+            dd.MdiParent = this;
+            dd.Show();
+        }
+
+        private void detailsToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            detailearnings de = new detailearnings();
+            de.MdiParent = this;
+            de.Show();
+        }
+
+        private void detailsToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            detailassets da = new detailassets();
+            da.MdiParent = this;
+            da.Show();
+        }
+
+      
+
+        private void employeeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Employee em = new Employee();
+            em.MdiParent = this;
+            em.Show();
+        }
+
+        private void rolesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ROLEScs rl = new ROLEScs();
+            rl.MdiParent = this;
+            rl.Show();
+        }
+
+        private void industriClassificationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            industriclass ic = new industriclass();
+            ic.MdiParent = this;
+            ic.Show();
+        }
+
+        private void restartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+            Environment.Exit(0);
+        }
+
+        private void configDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigDate cd = new ConfigDate();
+            cd.MdiParent = this;
+            cd.Show();
         }
     }
 }

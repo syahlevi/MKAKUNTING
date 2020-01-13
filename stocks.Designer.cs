@@ -30,12 +30,14 @@
         {
             this.gridaccounts = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbjmlstock = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lbjmlstocks = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridaccounts)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -50,23 +52,36 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridaccounts.BackgroundColor = System.Drawing.Color.White;
+            this.gridaccounts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridaccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridaccounts.Location = new System.Drawing.Point(12, 154);
             this.gridaccounts.Name = "gridaccounts";
             this.gridaccounts.ReadOnly = true;
-            this.gridaccounts.Size = new System.Drawing.Size(607, 208);
+            this.gridaccounts.Size = new System.Drawing.Size(615, 208);
             this.gridaccounts.TabIndex = 23;
+            this.gridaccounts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridaccounts_CellClick);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel1.Controls.Add(this.lbjmlstock);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(631, 81);
+            this.panel1.Size = new System.Drawing.Size(639, 81);
             this.panel1.TabIndex = 26;
+            // 
+            // lbjmlstock
+            // 
+            this.lbjmlstock.AutoSize = true;
+            this.lbjmlstock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbjmlstock.ForeColor = System.Drawing.Color.Honeydew;
+            this.lbjmlstock.Location = new System.Drawing.Point(477, 34);
+            this.lbjmlstock.Name = "lbjmlstock";
+            this.lbjmlstock.Size = new System.Drawing.Size(0, 24);
+            this.lbjmlstock.TabIndex = 30;
             // 
             // pictureBox1
             // 
@@ -99,6 +114,17 @@
             this.panel2.Size = new System.Drawing.Size(347, 59);
             this.panel2.TabIndex = 27;
             // 
+            // lbjmlstocks
+            // 
+            this.lbjmlstocks.AutoSize = true;
+            this.lbjmlstocks.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbjmlstocks.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.lbjmlstocks.Location = new System.Drawing.Point(165, 15);
+            this.lbjmlstocks.Name = "lbjmlstocks";
+            this.lbjmlstocks.Size = new System.Drawing.Size(141, 24);
+            this.lbjmlstocks.TabIndex = 29;
+            this.lbjmlstocks.Text = "Jumlah Stocks :";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -109,32 +135,35 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Jumlah Stocks :";
             // 
-            // lbjmlstocks
-            // 
-            this.lbjmlstocks.AutoSize = true;
-            this.lbjmlstocks.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbjmlstocks.Location = new System.Drawing.Point(165, 15);
-            this.lbjmlstocks.Name = "lbjmlstocks";
-            this.lbjmlstocks.Size = new System.Drawing.Size(141, 24);
-            this.lbjmlstocks.TabIndex = 29;
-            this.lbjmlstocks.Text = "Jumlah Stocks :";
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(544, 125);
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(365, 84);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 59);
             this.button1.TabIndex = 28;
             this.button1.Text = "Reload";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(446, 84);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 59);
+            this.button2.TabIndex = 29;
+            this.button2.Text = "Export";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // stocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(631, 376);
+            this.ClientSize = new System.Drawing.Size(639, 376);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -161,5 +190,7 @@
         private System.Windows.Forms.Label lbjmlstocks;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lbjmlstock;
     }
 }

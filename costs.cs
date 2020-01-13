@@ -22,6 +22,8 @@ namespace AKUNTING
 
       
         public int jmlaset { get; set; }
+        public string title { get; set; }
+        public string id { get; set; }
         public void loaddata()
         {
 
@@ -29,12 +31,14 @@ namespace AKUNTING
             NpgsqlCommand ncom = new NpgsqlCommand();
             ncom.Connection = ncon;
             ncom.CommandType = CommandType.Text;
-            ncom.CommandText = "select*from costs order by account_id asc ";
+            ncom.CommandText = "select*from namespace2.account_costs ";
             DataSet ds = new DataSet();
             NpgsqlDataAdapter nda = new NpgsqlDataAdapter(ncom);
             nda.Fill(ds, "akunting");
             gridaccounts.DataSource = ds;
             gridaccounts.DataMember = "akunting";
+            gridaccounts.Columns["amount"].DefaultCellStyle.Format = "N2";
+
             aturdatagrid();
 
 
@@ -68,6 +72,18 @@ namespace AKUNTING
 
         private void costs_Load(object sender, EventArgs e)
         {
+           
+            DataGridViewLinkColumn lnk = new DataGridViewLinkColumn();
+            DataGridViewLinkColumn lnk2 = new DataGridViewLinkColumn();
+            gridaccounts.Columns.Add(lnk2);
+            lnk2.Text = "Ubah Amount";
+            lnk2.UseColumnTextForLinkValue = true;
+            gridaccounts.Columns.Add(lnk);
+            //lnk.HeaderText = "BUAT SURAT PEMBERITAHUAN";
+            lnk.Text = "Rincian";
+
+            lnk.UseColumnTextForLinkValue = true;
+          
             counts();
             loaddata();
         }
@@ -81,7 +97,7 @@ namespace AKUNTING
             ncon.Open();
             //var sql = "select sum(amount)  from costs where extract(year from tanggal) ='" + dttanggal.Value.Year + "' and extract(month from tanggal) ='" + dttanggal.Value.Month + "'";
 
-            var sql = "select sum(amount)  from costs";
+            var sql = "select sum(amount)  from namespace2.account_costs ";
             NpgsqlCommand ncom = new NpgsqlCommand(sql, ncon);
             NpgsqlDataReader dr = ncom.ExecuteReader();
 
@@ -122,6 +138,19 @@ namespace AKUNTING
         {
             loaddata();
             counts();
+        }
+
+        private void gridaccounts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == gridaccounts.Columns[1].Index && e.RowIndex >= 0)
+            {
+                title = "costs";
+                id = gridaccounts.Rows[e.RowIndex].Cells[0].Value.ToString();
+                rincian ri = new rincian();
+                ri.title = title;
+                ri.MdiParent = this.MdiParent;
+                ri.Show();
+            }
         }
     }
 }

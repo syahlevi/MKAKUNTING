@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtgender = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtphone = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -46,6 +47,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtidempl = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtdatestart = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtcompanyid = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtemailcomp = new System.Windows.Forms.TextBox();
@@ -63,10 +67,6 @@
             this.txtaddress = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtcompanyname = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txtcompanyid = new System.Windows.Forms.TextBox();
-            this.txtdatestart = new System.Windows.Forms.TextBox();
-            this.txtgender = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -84,6 +84,16 @@
             this.panel5.Size = new System.Drawing.Size(754, 81);
             this.panel5.TabIndex = 30;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AKUNTING.Properties.Resources.ACCOUNTANT_512;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(95, 75);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -94,16 +104,6 @@
             this.label8.Size = new System.Drawing.Size(164, 24);
             this.label8.TabIndex = 0;
             this.label8.Text = "Identitas Company";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::AKUNTING.Properties.Resources.ACCOUNTANT_512;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(95, 75);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // groupBox1
             // 
@@ -123,10 +123,18 @@
             this.groupBox1.Controls.Add(this.txtidempl);
             this.groupBox1.Location = new System.Drawing.Point(12, 84);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(361, 315);
+            this.groupBox1.Size = new System.Drawing.Size(361, 224);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Head Company Identities";
+            // 
+            // txtgender
+            // 
+            this.txtgender.Location = new System.Drawing.Point(96, 106);
+            this.txtgender.Name = "txtgender";
+            this.txtgender.ReadOnly = true;
+            this.txtgender.Size = new System.Drawing.Size(228, 20);
+            this.txtgender.TabIndex = 40;
             // 
             // label7
             // 
@@ -267,6 +275,31 @@
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Company Identites";
+            // 
+            // txtdatestart
+            // 
+            this.txtdatestart.Location = new System.Drawing.Point(100, 262);
+            this.txtdatestart.Name = "txtdatestart";
+            this.txtdatestart.ReadOnly = true;
+            this.txtdatestart.Size = new System.Drawing.Size(228, 20);
+            this.txtdatestart.TabIndex = 47;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 25);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(65, 13);
+            this.label18.TabIndex = 45;
+            this.label18.Text = "Company ID";
+            // 
+            // txtcompanyid
+            // 
+            this.txtcompanyid.Location = new System.Drawing.Point(100, 22);
+            this.txtcompanyid.Name = "txtcompanyid";
+            this.txtcompanyid.ReadOnly = true;
+            this.txtcompanyid.Size = new System.Drawing.Size(228, 20);
+            this.txtcompanyid.TabIndex = 46;
             // 
             // label17
             // 
@@ -412,39 +445,6 @@
             this.txtcompanyname.ReadOnly = true;
             this.txtcompanyname.Size = new System.Drawing.Size(228, 20);
             this.txtcompanyname.TabIndex = 32;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 25);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(65, 13);
-            this.label18.TabIndex = 45;
-            this.label18.Text = "Company ID";
-            // 
-            // txtcompanyid
-            // 
-            this.txtcompanyid.Location = new System.Drawing.Point(100, 22);
-            this.txtcompanyid.Name = "txtcompanyid";
-            this.txtcompanyid.ReadOnly = true;
-            this.txtcompanyid.Size = new System.Drawing.Size(228, 20);
-            this.txtcompanyid.TabIndex = 46;
-            // 
-            // txtdatestart
-            // 
-            this.txtdatestart.Location = new System.Drawing.Point(100, 262);
-            this.txtdatestart.Name = "txtdatestart";
-            this.txtdatestart.ReadOnly = true;
-            this.txtdatestart.Size = new System.Drawing.Size(228, 20);
-            this.txtdatestart.TabIndex = 47;
-            // 
-            // txtgender
-            // 
-            this.txtgender.Location = new System.Drawing.Point(96, 106);
-            this.txtgender.Name = "txtgender";
-            this.txtgender.ReadOnly = true;
-            this.txtgender.Size = new System.Drawing.Size(228, 20);
-            this.txtgender.TabIndex = 40;
             // 
             // identitascompany
             // 

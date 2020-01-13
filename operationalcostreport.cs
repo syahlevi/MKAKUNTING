@@ -12,6 +12,7 @@ using CrystalDecisions.Shared;
 using CrystalDecisions.ReportSource;
 using CrystalDecisions.CrystalReports.Engine;
 using System.Globalization;
+using System.IO;
 
 namespace AKUNTING
 {
@@ -34,21 +35,24 @@ namespace AKUNTING
 
         public void loaddata()
         {
-            int m = DateTime.ParseExact(cbbulan.Text, "MMMM", CultureInfo.CurrentCulture).Month;
+            int m = DateTime.ParseExact(cbbulan.Text, "MMMM", new System.Globalization.CultureInfo("id-ID")).Month;
 
 
             NpgsqlConnection ncon = new NpgsqlConnection(stringkoneksi.connection);
             NpgsqlCommand ncom = new NpgsqlCommand();
             ncom.Connection = ncon;
             ncom.CommandType = CommandType.Text;
-            ncom.CommandText = "select*from costs where extract(year from tanggal) ='"+ Convert.ToInt32(this.cbtahun.Text)+ "' and extract(month from tanggal) ='" + m+ "'";
+            //SELECT amount::money::numeric::float8 from costs
+
+            ncom.CommandText = "select costdid as cost_id, amount, tanggal from namespace2.costs where extract(year from tanggal) ='" + Convert.ToInt32(this.cbtahun.Text)+ "' and extract(month from tanggal) ='" + m+ "'";
             DataSet ds = new DataSet();
             NpgsqlDataAdapter nda = new NpgsqlDataAdapter(ncom);
             nda.Fill(ds, "akunting");
             dgreport.DataSource = ds;
             dgreport.DataMember = "akunting";
-
+            dgreport.Columns["amount"].DefaultCellStyle.Format = "N2";
             aturdatagrid();
+           
 
 
 
@@ -56,11 +60,11 @@ namespace AKUNTING
 
         public void countstock()
         {
-            int m = DateTime.ParseExact(cbbulan.Text, "MMMM", CultureInfo.CurrentCulture).Month;
+            int m = DateTime.ParseExact(cbbulan.Text, "MMMM", new System.Globalization.CultureInfo("id-ID")).Month;
 
             NpgsqlConnection ncon = new NpgsqlConnection(stringkoneksi.connection);
             ncon.Open();
-            var sql = "select sum(amount)  from stocks where extract(year from tanggal) ='" + Convert.ToInt32(this.cbtahun.Text) + "' and extract(month from tanggal) ='" + m + "'";
+            var sql = "select sum(amount)  from namespace2.stocks where extract(year from tanggal) ='" + Convert.ToInt32(this.cbtahun.Text) + "' and extract(month from tanggal) ='" + m + "'";
             NpgsqlCommand ncom = new NpgsqlCommand(sql, ncon);
             NpgsqlDataReader dr = ncom.ExecuteReader();
 
@@ -84,10 +88,10 @@ namespace AKUNTING
 
         public void cekcash()
         {
-            int m = DateTime.ParseExact(cbbulan.Text, "MMMM", CultureInfo.CurrentCulture).Month;
+            int m = DateTime.ParseExact(cbbulan.Text, "MMMM", new System.Globalization.CultureInfo("id-ID")).Month;
             NpgsqlConnection ncon = new NpgsqlConnection(stringkoneksi.connection);
             ncon.Open();
-            var sql = "select sum (amount) from assets where extract(year from tanggal) ='" + Convert.ToInt32(this.cbtahun.Text) + "' and extract(month from tanggal) ='" + m + "'"; 
+            var sql = "select sum (amount) from namespace2.assets where extract(year from tanggal) ='" + Convert.ToInt32(this.cbtahun.Text) + "' and extract(month from tanggal) ='" + m + "'"; 
             NpgsqlCommand ncom = new NpgsqlCommand(sql, ncon);
             NpgsqlDataReader nred = ncom.ExecuteReader();
             while(nred.Read())
@@ -109,13 +113,13 @@ namespace AKUNTING
 
         public void counts()
         {
-           int  m= DateTime.ParseExact(cbbulan.Text, "MMMM", CultureInfo.CurrentCulture).Month;
+           int  m= DateTime.ParseExact(cbbulan.Text, "MMMM", new System.Globalization.CultureInfo("id-ID")).Month;
             //int tot = Convert.ToInt32(this.lbtotop.Text);
             NpgsqlConnection ncon = new NpgsqlConnection(stringkoneksi.connection);
             ncon.Open();
             //var sql = "select sum(amount)  from costs where extract(year from tanggal) ='" + dttanggal.Value.Year + "' and extract(month from tanggal) ='" + dttanggal.Value.Month + "'";
 
-            var sql = "select sum(amount)  from costs where extract(year from tanggal) ='" + cbtahun.Text + "' and extract(month from tanggal) ='" + m + "'";
+            var sql = "select sum(amount)  from namespace2.costs where extract(year from tanggal) ='" + cbtahun.Text + "' and extract(month from tanggal) ='" + m + "'";
             NpgsqlCommand ncom = new NpgsqlCommand(sql,ncon);
             NpgsqlDataReader dr = ncom.ExecuteReader();
 
@@ -150,7 +154,7 @@ namespace AKUNTING
             ncon.Open();
             //var sql = "select sum(amount)  from costs where extract(year from tanggal) ='" + dttanggal.Value.Year + "' and extract(month from tanggal) ='" + dttanggal.Value.Month + "'";
 
-            var sql = "select sum(amount)  from amountupdatestocks ";
+            var sql = "select amount  from namespace2.amountupdatestocks ";
             NpgsqlCommand ncom = new NpgsqlCommand(sql, ncon);
             NpgsqlDataReader dr = ncom.ExecuteReader();
 
@@ -166,6 +170,7 @@ namespace AKUNTING
                 }
                 else
                 {
+                    MessageBox.Show("Stocks Amount");
                     insertamount();
                 }
             }
@@ -177,7 +182,7 @@ namespace AKUNTING
         {
            
             NpgsqlConnection ncon = new NpgsqlConnection(stringkoneksi.connection);
-            string masukdata = "insert into amountupdatestocks (amount) values(:amount)";
+            string masukdata = "insert into namespace2.amountupdatestocks (amount) values(:amount)";
             NpgsqlCommand ncom = new NpgsqlCommand(masukdata, ncon);
             ncom.Parameters.Add(new NpgsqlParameter("amount", selisih));
 
@@ -189,11 +194,11 @@ namespace AKUNTING
 
         public void update()
         {
-            int m = DateTime.ParseExact(DateTime.Now.Month.ToString(), "mm", CultureInfo.CurrentCulture).Month;
+            int m = DateTime.ParseExact(DateTime.Now.Month.ToString(), "mm", new System.Globalization.CultureInfo("id-ID")).Month;
 
             NpgsqlConnection scon = new NpgsqlConnection(stringkoneksi.connection);
 
-            string masukdata = "update amountupdatestocks set amount=:amount";
+            string masukdata = "update namespace2.amountupdatestocks set amount=:amount";
 
             NpgsqlCommand scom = new NpgsqlCommand(masukdata, scon);
             scom.Parameters.Add(new NpgsqlParameter("@amount", Convert.ToDecimal(selisih)));
@@ -255,18 +260,18 @@ namespace AKUNTING
            
             NpgsqlConnection nocn = new NpgsqlConnection(stringkoneksi.connection);
             nocn.Open();
-            NpgsqlCommand ncom = new NpgsqlCommand("select month,year from grossprofits ", nocn);
+            NpgsqlCommand ncom = new NpgsqlCommand("select bulan,tahun from namespace2.configdate", nocn);
             NpgsqlDataAdapter nda = new NpgsqlDataAdapter(ncom);
             DataTable dt = new DataTable();
             nda.Fill(dt);
             //DataRow dr = dt.NewRow();
             //dr.ItemArray = new object[] { 0, "--Pilih Parent--" };
             //dt.Rows.InsertAt(dr, 0);
-            cbbulan.ValueMember = "month";
-            cbbulan.DisplayMember = "month";
+            cbbulan.ValueMember = "bulan";
+            cbbulan.DisplayMember = "bulan";
             cbbulan.DataSource = dt;
-            cbtahun.ValueMember = "year";
-            cbtahun.DisplayMember = "year";
+            cbtahun.ValueMember = "tahun";
+            cbtahun.DisplayMember = "tahun";
             cbtahun.DataSource = dt;
             nocn.Close();
         }
@@ -311,10 +316,7 @@ namespace AKUNTING
           
         }
 
-        private void dttanggal_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
+     
         private void button3_Click(object sender, EventArgs e)
         {
             
@@ -330,9 +332,8 @@ namespace AKUNTING
             c.Show();
         }
 
-        private void cbbulan_SelectedIndexChanged(object sender, EventArgs e)
-        {
+     
 
-        }
+        
     }
 }

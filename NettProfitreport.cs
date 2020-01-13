@@ -30,10 +30,10 @@ namespace AKUNTING
         {
             NpgsqlConnection scon = new NpgsqlConnection(stringkoneksi.connection);
 
-            string masukdata = "update nettprofits set amount=:amount where month='" + cbbulan.Text + "'";
+            string masukdata = "update namespace2.nettprofit set totalnet=:totalnet where bulan='" + cbbulan.Text + "'";
 
             NpgsqlCommand scom = new NpgsqlCommand(masukdata, scon);
-            scom.Parameters.Add(new NpgsqlParameter("@amount", Convert.ToDecimal(netprofit)));
+            scom.Parameters.Add(new NpgsqlParameter("@totalnet", Convert.ToDecimal(netprofit)));
 
 
             scon.Open();
@@ -49,14 +49,14 @@ namespace AKUNTING
             int m = DateTime.ParseExact(cbbulan.Text, "MMMM", CultureInfo.CurrentCulture).Month;
             NpgsqlConnection ncon2 = new NpgsqlConnection(stringkoneksi.connection);
             ncon2.Open();
-            var sql = "select month from nettprofits where month='" + months + "'";
+            var sql = "select bulan from namespace2.nettprofit where bulan='" + months + "'";
             NpgsqlCommand ncom2 = new NpgsqlCommand(sql, ncon2);
             NpgsqlDataReader nred2 = ncom2.ExecuteReader();
             while (nred2.Read())
             {
                 if (!nred2.IsDBNull(0))
                 {
-                    Update();
+                    update();
                     MessageBox.Show("DATA GROSS PROFIT BULAN INI SUDAH ADA TIDAK PERLU INSERT DOUBLE CUKUP UPDATE AMOUNT");
 
                 }
@@ -65,14 +65,21 @@ namespace AKUNTING
 
                     try
                     {
+                        int a = 0;
                         NpgsqlConnection ncon = new NpgsqlConnection(stringkoneksi.connection);
-                        string masukdata = "insert into nettprofits(year,month,amount) values(:year,:month,:amount)";
+                        string masukdata = "insert into namespace2.nettprofit(nettprofitid,bulan,tahun,totalgross,totalnet,interest,amortization,depreciation,tax,keterangan) values(:nettprofitid,:bulan,:tahun,:totalgross,:totalnet,:interest,:amortization,:depreciation,:tax,:keterangan)";
                         NpgsqlCommand ncom = new NpgsqlCommand(masukdata, ncon);
-                        ncom.Parameters.Add(new NpgsqlParameter("year", decimal.Parse(this.cbtahun.Text)));
-                        ncom.Parameters.Add(new NpgsqlParameter("month", cbbulan.Text));
+                        ncom.Parameters.Add(new NpgsqlParameter("nettprofitid", cbbulan.Text+cbtahun.Text+a++));
+                        ncom.Parameters.Add(new NpgsqlParameter("bulan", cbbulan.Text));
+                        ncom.Parameters.Add(new NpgsqlParameter("tahun", Convert.ToInt32(this.cbtahun.Text)));
+                        ncom.Parameters.Add(new NpgsqlParameter("totalgross", grossprofit));
+                        ncom.Parameters.Add(new NpgsqlParameter("totalnet", netprofit));
+                        ncom.Parameters.Add(new NpgsqlParameter("interest",  Convert.ToInt32(this.txtinterest.Text)));
+                        ncom.Parameters.Add(new NpgsqlParameter("amortization", Convert.ToInt32(this.txtamortization.Text)));
+                        ncom.Parameters.Add(new NpgsqlParameter("depreciation", Convert.ToInt32(this.txtdepreciation.Text)));
+                        ncom.Parameters.Add(new NpgsqlParameter("tax", Convert.ToInt32(this.txttax.Text)));
+                        ncom.Parameters.Add(new NpgsqlParameter("keterangan", lbket.Text));
 
-
-                        ncom.Parameters.Add(new NpgsqlParameter("amount", decimal.Parse(lbtotgross.Text)));
 
                         ncon.Open();
                         ncom.ExecuteNonQuery();
@@ -122,18 +129,18 @@ namespace AKUNTING
 
             NpgsqlConnection nocn = new NpgsqlConnection(stringkoneksi.connection);
             nocn.Open();
-            NpgsqlCommand ncom = new NpgsqlCommand("select month,year from nettprofits ", nocn);
+            NpgsqlCommand ncom = new NpgsqlCommand("select bulan,tahun from namespace2.configdate", nocn);
             NpgsqlDataAdapter nda = new NpgsqlDataAdapter(ncom);
             DataTable dt = new DataTable();
             nda.Fill(dt);
             //DataRow dr = dt.NewRow();
             //dr.ItemArray = new object[] { 0, "--Pilih Parent--" };
             //dt.Rows.InsertAt(dr, 0);
-            cbbulan.ValueMember = "month";
-            cbbulan.DisplayMember = "month";
+            cbbulan.ValueMember = "bulan";
+            cbbulan.DisplayMember = "bulan";
             cbbulan.DataSource = dt;
-            cbtahun.ValueMember = "year";
-            cbtahun.DisplayMember = "year";
+            cbtahun.ValueMember = "tahun";
+            cbtahun.DisplayMember = "tahun";
             cbtahun.DataSource = dt;
             nocn.Close();
         }
@@ -164,12 +171,19 @@ namespace AKUNTING
             NpgsqlCommand ncom = new NpgsqlCommand();
             ncom.Connection = ncon;
             ncom.CommandType = CommandType.Text;
-            ncom.CommandText = "select*from nettprofits where month='" + cbbulan.Text + "' and year='" + cbtahun.Text + "'";
+            ncom.CommandText = "select*from namespace2.nettprofit where bulan='" + cbbulan.Text + "' and tahun='" + cbtahun.Text + "'";
             DataSet ds = new DataSet();
             NpgsqlDataAdapter nda = new NpgsqlDataAdapter(ncom);
             nda.Fill(ds, "akunting");
             gridaccounts.DataSource = ds;
             gridaccounts.DataMember = "akunting";
+            gridaccounts.Columns["totalgross"].DefaultCellStyle.Format = "N2";
+            gridaccounts.Columns["totalnet"].DefaultCellStyle.Format = "N2";
+            gridaccounts.Columns["interest"].DefaultCellStyle.Format = "N2";
+            gridaccounts.Columns["amortization"].DefaultCellStyle.Format = "N2";
+            gridaccounts.Columns["depreciation"].DefaultCellStyle.Format = "N2";
+            gridaccounts.Columns["tax"].DefaultCellStyle.Format = "N2";
+
 
             aturdatagrid();
 
@@ -209,7 +223,7 @@ namespace AKUNTING
             ncon.Open();
             //var sql = "select sum(amount)  from costs where extract(year from tanggal) ='" + dttanggal.Value.Year + "' and extract(month from tanggal) ='" + dttanggal.Value.Month + "'";
 
-            var sql = "select amount  from grossprofits where month='" + cbbulan.Text + "' and year='" + cbtahun.Text + "'";
+            var sql = "select grossprofit from namespace2.grossprofit where bulan='" + cbbulan.Text + "' and tahun='" + cbtahun.Text + "'";
                 NpgsqlCommand ncom = new NpgsqlCommand(sql, ncon);
             NpgsqlDataReader dr = ncom.ExecuteReader();
 
@@ -283,6 +297,23 @@ namespace AKUNTING
         private void button3_Click(object sender, EventArgs e)
         {
             update();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Cetak3 c3 = new Cetak3();
+            c3.date = lbreportdate.Text;
+            c3.month = cbbulan.Text;
+            c3.year = Convert.ToInt32(this.cbtahun.Text);
+            c3.gross = grossprofit;
+            c3.net = netprofit;
+            c3.interest = Convert.ToInt32(this.txtinterest.Text);
+            c3.amortization = Convert.ToInt32(this.txtamortization.Text);
+            c3.depreciation = Convert.ToInt32(this.txtdepreciation.Text);
+            c3.tax = Convert.ToInt32(this.txttax.Text);
+            c3.keterangan = lbket.Text;
+            c3.MdiParent = this.MdiParent;
+            c3.Show();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(accounts));
             this.label1 = new System.Windows.Forms.Label();
             this.txtakunid = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,20 +38,31 @@
             this.gridaccounts = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.rdparentacc = new System.Windows.Forms.RadioButton();
             this.rdchildacc = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtparentsid = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbparent = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.gbdata = new System.Windows.Forms.GroupBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.dttanggal = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridaccounts)).BeginInit();
             this.panel5.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.gbdata.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -106,23 +118,27 @@
             // 
             this.gridaccounts.AllowUserToAddRows = false;
             this.gridaccounts.AllowUserToDeleteRows = false;
+            this.gridaccounts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridaccounts.BackgroundColor = System.Drawing.Color.White;
+            this.gridaccounts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridaccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridaccounts.Location = new System.Drawing.Point(12, 240);
+            this.gridaccounts.Location = new System.Drawing.Point(6, 44);
             this.gridaccounts.Name = "gridaccounts";
             this.gridaccounts.ReadOnly = true;
-            this.gridaccounts.Size = new System.Drawing.Size(654, 180);
+            this.gridaccounts.Size = new System.Drawing.Size(569, 208);
             this.gridaccounts.TabIndex = 6;
             this.gridaccounts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridaccounts_CellClick);
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkCyan;
+            this.button1.BackColor = System.Drawing.Color.White;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(510, 211);
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(437, 243);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 33);
             this.button1.TabIndex = 7;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = false;
@@ -136,8 +152,18 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(678, 81);
+            this.panel5.Size = new System.Drawing.Size(611, 81);
             this.panel5.TabIndex = 29;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AKUNTING.Properties.Resources.ACCOUNTANT_512;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(95, 75);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // label8
             // 
@@ -152,12 +178,12 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.DarkCyan;
+            this.button2.BackColor = System.Drawing.Color.White;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(591, 211);
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(518, 243);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(75, 33);
             this.button2.TabIndex = 30;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = false;
@@ -173,6 +199,7 @@
             this.rdparentacc.TabStop = true;
             this.rdparentacc.Text = "Parent Account";
             this.rdparentacc.UseVisualStyleBackColor = true;
+            this.rdparentacc.CheckedChanged += new System.EventHandler(this.rdparentacc_CheckedChanged);
             // 
             // rdchildacc
             // 
@@ -187,8 +214,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtparentsid);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.cbparent);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.txtakunid);
@@ -197,10 +224,18 @@
             this.groupBox1.Controls.Add(this.rdparentacc);
             this.groupBox1.Location = new System.Drawing.Point(12, 88);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(654, 91);
+            this.groupBox1.Size = new System.Drawing.Size(593, 91);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Konfigurasi Parent / Child Acount";
+            // 
+            // txtparentsid
+            // 
+            this.txtparentsid.Location = new System.Drawing.Point(111, 48);
+            this.txtparentsid.Name = "txtparentsid";
+            this.txtparentsid.ReadOnly = true;
+            this.txtparentsid.Size = new System.Drawing.Size(119, 20);
+            this.txtparentsid.TabIndex = 38;
             // 
             // label4
             // 
@@ -211,23 +246,14 @@
             this.label4.TabIndex = 37;
             this.label4.Text = "Parent ID";
             // 
-            // cbparent
-            // 
-            this.cbparent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbparent.FormattingEnabled = true;
-            this.cbparent.Location = new System.Drawing.Point(111, 45);
-            this.cbparent.Name = "cbparent";
-            this.cbparent.Size = new System.Drawing.Size(121, 21);
-            this.cbparent.TabIndex = 36;
-            // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.DarkCyan;
+            this.button4.BackColor = System.Drawing.Color.White;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(548, 19);
+            this.button4.ForeColor = System.Drawing.Color.Black;
+            this.button4.Location = new System.Drawing.Point(514, 45);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 23);
+            this.button4.Size = new System.Drawing.Size(73, 33);
             this.button4.TabIndex = 35;
             this.button4.Text = "Batalkan";
             this.button4.UseVisualStyleBackColor = false;
@@ -235,51 +261,137 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.DarkCyan;
+            this.button3.BackColor = System.Drawing.Color.White;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(447, 19);
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.Location = new System.Drawing.Point(418, 45);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 23);
+            this.button3.Size = new System.Drawing.Size(90, 33);
             this.button3.TabIndex = 34;
             this.button3.Text = "Set Konfigurasi";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // pictureBox1
+            // gbdata
             // 
-            this.pictureBox1.Image = global::AKUNTING.Properties.Resources.ACCOUNTANT_512;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(95, 75);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.gbdata.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbdata.Controls.Add(this.toolStrip1);
+            this.gbdata.Controls.Add(this.gridaccounts);
+            this.gbdata.Location = new System.Drawing.Point(18, 281);
+            this.gbdata.Name = "gbdata";
+            this.gbdata.Size = new System.Drawing.Size(581, 258);
+            this.gbdata.TabIndex = 34;
+            this.gbdata.TabStop = false;
+            this.gbdata.Text = "Data";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton2,
+            this.toolStripButton3,
+            this.toolStripButton5,
+            this.toolStripButton1,
+            this.toolStripButton4});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 16);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(575, 25);
+            this.toolStrip1.TabIndex = 7;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(72, 22);
+            this.toolStripButton2.Text = "Perbesar";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(68, 22);
+            this.toolStripButton3.Text = "Perkecil";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(112, 22);
+            this.toolStripButton5.Text = "Eksport To Excel";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(63, 22);
+            this.toolStripButton1.Text = "Reload";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(52, 22);
+            this.toolStripButton4.Text = "Help";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
+            // dttanggal
+            // 
+            this.dttanggal.Location = new System.Drawing.Point(116, 237);
+            this.dttanggal.Name = "dttanggal";
+            this.dttanggal.Size = new System.Drawing.Size(200, 20);
+            this.dttanggal.TabIndex = 35;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 243);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "Tanggal";
             // 
             // accounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(678, 432);
+            this.ClientSize = new System.Drawing.Size(611, 551);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.dttanggal);
+            this.Controls.Add(this.gbdata);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.gridaccounts);
             this.Controls.Add(this.txtparentid);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtnamaakun);
             this.Controls.Add(this.label2);
             this.Name = "accounts";
-            this.Text = "accounts";
+            this.Text = "Accounts";
             this.Load += new System.EventHandler(this.accounts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridaccounts)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.gbdata.ResumeLayout(false);
+            this.gbdata.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,6 +417,15 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbparent;
+        private System.Windows.Forms.TextBox txtparentsid;
+        private System.Windows.Forms.GroupBox gbdata;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.DateTimePicker dttanggal;
+        private System.Windows.Forms.Label label5;
     }
 }

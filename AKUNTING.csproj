@@ -12,6 +12,22 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <HockeyAppResourceId>f0b8f2b43e60402aa506fef1894e2e4d</HockeyAppResourceId>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,12 +53,29 @@
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="ExcelDataReader">
+      <HintPath>packages\ExcelDataReader.3.4.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet">
+      <HintPath>packages\ExcelDataReader.DataSet.3.4.0\lib\net45\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Npgsql, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>packages\Npgsql.4.0.0\lib\net451\Npgsql.dll</HintPath>
       <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Office, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>packages\MicrosoftOfficeCore.15.0.0\lib\net35\Office.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -89,12 +122,32 @@
     <Compile Include="cetak.Designer.cs">
       <DependentUpon>cetak.cs</DependentUpon>
     </Compile>
+    <Compile Include="cetak2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cetak2.Designer.cs">
+      <DependentUpon>cetak2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cetak3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cetak3.Designer.cs">
+      <DependentUpon>Cetak3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
     <Compile Include="companyidentity.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="companyidentity.Designer.cs">
       <DependentUpon>companyidentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfigDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigDate.Designer.cs">
+      <DependentUpon>ConfigDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="consume_storedprocedure_View.cs" />
     <Compile Include="costs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,18 +159,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReport2.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport2.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReport3.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport3.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="datarekening.cs">
       <SubType>Form</SubType>
@@ -131,11 +187,53 @@
     <Compile Include="debts.Designer.cs">
       <DependentUpon>debts.cs</DependentUpon>
     </Compile>
+    <Compile Include="detailassets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="detailassets.Designer.cs">
+      <DependentUpon>detailassets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailDebts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailDebts.Designer.cs">
+      <DependentUpon>DetailDebts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="detailearnings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="detailearnings.Designer.cs">
+      <DependentUpon>detailearnings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="detailrincian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="detailrincian.Designer.cs">
+      <DependentUpon>detailrincian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="detailstocks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="detailstocks.Designer.cs">
+      <DependentUpon>detailstocks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="detailcost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="detailcost.Designer.cs">
+      <DependentUpon>detailcost.cs</DependentUpon>
+    </Compile>
     <Compile Include="earnings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="earnings.Designer.cs">
       <DependentUpon>earnings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee.Designer.cs">
+      <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -148,6 +246,12 @@
     </Compile>
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
     <Compile Include="grossprofits.cs">
       <SubType>Form</SubType>
@@ -167,11 +271,23 @@
     <Compile Include="identitascompany.Designer.cs">
       <DependentUpon>identitascompany.cs</DependentUpon>
     </Compile>
+    <Compile Include="industriclass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="industriclass.Designer.cs">
+      <DependentUpon>industriclass.cs</DependentUpon>
+    </Compile>
     <Compile Include="insertstocks.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="insertstocks.Designer.cs">
       <DependentUpon>insertstocks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="konfigurasiodbc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="konfigurasiodbc.Designer.cs">
+      <DependentUpon>konfigurasiodbc.cs</DependentUpon>
     </Compile>
     <Compile Include="nettprofit.cs" />
     <Compile Include="NettProfitreport.cs">
@@ -192,6 +308,12 @@
     <Compile Include="operationalcostreport.Designer.cs">
       <DependentUpon>operationalcostreport.cs</DependentUpon>
     </Compile>
+    <Compile Include="panduan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="panduan.Designer.cs">
+      <DependentUpon>panduan.cs</DependentUpon>
+    </Compile>
     <Compile Include="popupcostamount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +322,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rincian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rincian.Designer.cs">
+      <DependentUpon>rincian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ROLEScs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ROLEScs.Designer.cs">
+      <DependentUpon>ROLEScs.cs</DependentUpon>
+    </Compile>
     <Compile Include="stocks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +347,24 @@
       <DependentUpon>stoppingretainedearning.cs</DependentUpon>
     </Compile>
     <Compile Include="stringkoneksi.cs" />
+    <Compile Include="updateamount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateamount.Designer.cs">
+      <DependentUpon>updateamount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Welcomescreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Welcomescreen.Designer.cs">
+      <DependentUpon>Welcomescreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="zoomgambar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="zoomgambar.Designer.cs">
+      <DependentUpon>zoomgambar.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="accounts.resx">
       <DependentUpon>accounts.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,38 +374,74 @@
     <EmbeddedResource Include="cetak.resx">
       <DependentUpon>cetak.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="cetak2.resx">
+      <DependentUpon>cetak2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cetak3.resx">
+      <DependentUpon>Cetak3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="companyidentity.resx">
       <DependentUpon>companyidentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigDate.resx">
+      <DependentUpon>ConfigDate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="costs.resx">
       <DependentUpon>costs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport1.rpt">
+    <Content Include="CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport2.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CrystalReport2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport2.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport3.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CrystalReport3.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport3.cs</LastGenOutput>
-    </EmbeddedResource>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="datarekening.resx">
       <DependentUpon>datarekening.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="debts.resx">
       <DependentUpon>debts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="detailassets.resx">
+      <DependentUpon>detailassets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailDebts.resx">
+      <DependentUpon>DetailDebts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="detailearnings.resx">
+      <DependentUpon>detailearnings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="detailrincian.resx">
+      <DependentUpon>detailrincian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="detailstocks.resx">
+      <DependentUpon>detailstocks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="detailcost.resx">
+      <DependentUpon>detailcost.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="earnings.resx">
       <DependentUpon>earnings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee.resx">
+      <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="grossprofits.resx">
       <DependentUpon>grossprofits.cs</DependentUpon>
@@ -264,6 +452,15 @@
     <EmbeddedResource Include="identitascompany.resx">
       <DependentUpon>identitascompany.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="industriclass.resx">
+      <DependentUpon>industriclass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="insertstocks.resx">
+      <DependentUpon>insertstocks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="konfigurasiodbc.resx">
+      <DependentUpon>konfigurasiodbc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NettProfitreport.resx">
       <DependentUpon>NettProfitreport.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,6 +469,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="operationalcostreport.resx">
       <DependentUpon>operationalcostreport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="panduan.resx">
+      <DependentUpon>panduan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="popupcostamount.resx">
       <DependentUpon>popupcostamount.cs</DependentUpon>
@@ -287,12 +487,28 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="rincian.resx">
+      <DependentUpon>rincian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ROLEScs.resx">
+      <DependentUpon>ROLEScs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="stocks.resx">
       <DependentUpon>stocks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="stoppingretainedearning.resx">
       <DependentUpon>stoppingretainedearning.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="updateamount.resx">
+      <DependentUpon>updateamount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Welcomescreen.resx">
+      <DependentUpon>Welcomescreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="zoomgambar.resx">
+      <DependentUpon>zoomgambar.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -311,13 +527,46 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ACCOUNTANT-512.png" />
+    <None Include="Resources\ACCOUNTANT-512.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\blog-image-8-141-700x408.png" />
-    <Content Include="Resources\picture-id831121290.jpg" />
-    <None Include="Resources\picture-id8311212901.jpg" />
-    <None Include="Resources\blog-image-8-141-700x4081.png" />
+    <Content Include="Resources\blog-image-8-141-700x408.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\database-icon-png-favpng-hgZ3vwqQctLEyY6X2EEN9band.jpg" />
+    <None Include="Resources\database-icon-png-favpng-hgZ3vwqQctLEyY6X2EEN9band1.jpg" />
+    <Content Include="Resources\download.jpg" />
+    <None Include="Resources\download1.jpg" />
+    <Content Include="Resources\nopicture.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\nopicture1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Resources\odbc.PNG" />
+    <Content Include="Resources\picture-id831121290.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\picture-id8311212901.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\blog-image-8-141-700x4081.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -118,13 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ACCOUNTANT-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ACCOUNTANT-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="picture-id831121290" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\picture-id8311212901.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nopicture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nopicture1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="blog-image-8-141-700x408" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blog-image-8-141-700x4081.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="picture-id831121290" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\picture-id8311212901.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ACCOUNTANT-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ACCOUNTANT-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="database-icon-png-favpng-hgZ3vwqQctLEyY6X2EEN9band" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\database-icon-png-favpng-hgZ3vwqQctLEyY6X2EEN9band1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

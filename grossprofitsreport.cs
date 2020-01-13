@@ -31,7 +31,7 @@ namespace AKUNTING
             ncon.Open();
             //var sql = "select sum(amount)  from costs where extract(year from tanggal) ='" + dttanggal.Value.Year + "' and extract(month from tanggal) ='" + dttanggal.Value.Month + "'";
 
-            var sql = "select sum(amount)  from earnings where extract(year from tanggal) ='" + Convert.ToUInt32(this.cbtahun.Text )+ "' and extract(month from tanggal) ='" + m + "'";
+            var sql = "select sum(amount)  from namespace2.earnings where extract(year from tanggal) ='" + Convert.ToUInt32(this.cbtahun.Text )+ "' and extract(month from tanggal) ='" + m + "'";
             NpgsqlCommand ncom = new NpgsqlCommand(sql, ncon);
             NpgsqlDataReader dr = ncom.ExecuteReader();
 
@@ -57,6 +57,7 @@ namespace AKUNTING
         {
             lbreportdate.Text = DateTime.Now.Date.ToString("dddd, dd-MM-yyyy");
             loadbind();
+            loadbind2();
           
         }
         public void loadbind()
@@ -64,19 +65,36 @@ namespace AKUNTING
 
             NpgsqlConnection nocn = new NpgsqlConnection(stringkoneksi.connection);
             nocn.Open();
-            NpgsqlCommand ncom = new NpgsqlCommand("select month,year from grossprofits ", nocn);
+            NpgsqlCommand ncom = new NpgsqlCommand("select distinct bulan from namespace2.configdate ", nocn);
             NpgsqlDataAdapter nda = new NpgsqlDataAdapter(ncom);
             DataTable dt = new DataTable();
             nda.Fill(dt);
             //DataRow dr = dt.NewRow();
             //dr.ItemArray = new object[] { 0, "--Pilih Parent--" };
             //dt.Rows.InsertAt(dr, 0);
-            cbbulan.ValueMember = "month";
-            cbbulan.DisplayMember = "month";
+            cbbulan.ValueMember = "bulan";
+            cbbulan.DisplayMember = "bulan";
             cbbulan.DataSource = dt;
-            cbtahun.ValueMember = "year";
-            cbtahun.DisplayMember = "year";
+        
+            nocn.Close();
+        }
+
+        public void loadbind2()
+        {
+
+            NpgsqlConnection nocn = new NpgsqlConnection(stringkoneksi.connection);
+            nocn.Open();
+            NpgsqlCommand ncom = new NpgsqlCommand("select distinct tahun from namespace2.configdate ", nocn);
+            NpgsqlDataAdapter nda = new NpgsqlDataAdapter(ncom);
+            DataTable dt = new DataTable();
+            nda.Fill(dt);
+            //DataRow dr = dt.NewRow();
+            //dr.ItemArray = new object[] { 0, "--Pilih Parent--" };
+            //dt.Rows.InsertAt(dr, 0);
+            cbtahun.ValueMember = "tahun";
+            cbtahun.DisplayMember = "tahun";
             cbtahun.DataSource = dt;
+
             nocn.Close();
         }
 
@@ -85,7 +103,7 @@ namespace AKUNTING
             int m = DateTime.ParseExact(cbbulan.Text, "MMMM", CultureInfo.CurrentCulture).Month;
             NpgsqlConnection ncon = new NpgsqlConnection(stringkoneksi.connection);
             ncon.Open();
-            var sql = "select sum (amount) from costs where extract(year from tanggal) ='" + Convert.ToInt32(this.cbtahun.Text) + "' and extract(month from tanggal) ='" + m + "'";
+            var sql = "select sum (amount) from namespace2.costs where extract(year from tanggal) ='" + Convert.ToInt32(this.cbtahun.Text) + "' and extract(month from tanggal) ='" + m + "'";
             NpgsqlCommand ncom = new NpgsqlCommand(sql, ncon);
             NpgsqlDataReader nred = ncom.ExecuteReader();
             while (nred.Read())
@@ -133,12 +151,15 @@ namespace AKUNTING
             NpgsqlCommand ncom = new NpgsqlCommand();
             ncom.Connection = ncon;
             ncom.CommandType = CommandType.Text;
-            ncom.CommandText = "select*from grossprofits where month='" + cbbulan.Text + "' and year='"+cbtahun.Text+"'"; 
+            ncom.CommandText = "select*from namespace2.grossprofit where bulan='" + cbbulan.Text + "' and tahun='"+cbtahun.Text+"'"; 
             DataSet ds = new DataSet();
             NpgsqlDataAdapter nda = new NpgsqlDataAdapter(ncom);
             nda.Fill(ds, "akunting");
             gridaccounts.DataSource = ds;
             gridaccounts.DataMember = "akunting";
+            gridaccounts.Columns["earning"].DefaultCellStyle.Format = "N2";
+            gridaccounts.Columns["costs"].DefaultCellStyle.Format = "N2";
+            gridaccounts.Columns["grossprofit"].DefaultCellStyle.Format = "N2";
 
             aturdatagrid();
 
@@ -177,10 +198,10 @@ namespace AKUNTING
         {
             NpgsqlConnection scon = new NpgsqlConnection(stringkoneksi.connection);
 
-            string masukdata = "update grossprofits set amount=:amount where month='" +cbbulan.Text + "'";
+            string masukdata = "update namespace2.grossprofit set grossprofit=:grossprofit where bulan='" + cbbulan.Text + "'";
 
             NpgsqlCommand scom = new NpgsqlCommand(masukdata, scon);
-            scom.Parameters.Add(new NpgsqlParameter("@amount", Convert.ToDecimal(this.lbtotgross.Text)));
+            scom.Parameters.Add(new NpgsqlParameter("@grossprofit", Convert.ToDecimal(this.lbtotgross.Text)));
 
 
             scon.Open();
@@ -195,8 +216,8 @@ namespace AKUNTING
             int m = DateTime.ParseExact(cbbulan.Text, "MMMM", CultureInfo.CurrentCulture).Month;
             NpgsqlConnection ncon2 = new NpgsqlConnection(stringkoneksi.connection);
             ncon2.Open();
-            var sql = "select month from grossprofits where month='" + months + "'";
-                NpgsqlCommand ncom2 = new NpgsqlCommand(sql, ncon2);
+            var sql = "select bulan from namespace2.grossprofit where bulan='" + months + "'";
+            NpgsqlCommand ncom2 = new NpgsqlCommand(sql, ncon2);
             NpgsqlDataReader nred2 = ncom2.ExecuteReader();
             while (nred2.Read())
             {
@@ -208,17 +229,20 @@ namespace AKUNTING
                 }
                 else
                 {
-                    
+
                     try
-                    {
+                    { int a = 0;
                         NpgsqlConnection ncon = new NpgsqlConnection(stringkoneksi.connection);
-                        string masukdata = "insert into GROSSPROFITS (year,month,amount) values(@year,@month,@amount)";
+                        string masukdata = "insert into namespace2.GROSSPROFIT (grossprofitid,bulan,tahun,earning,costs,grossprofit,keterangan) values(@grossprofitid,@bulan,@tahun,@earning,@costs,@grossprofit,@keterangan)";
                         NpgsqlCommand ncom = new NpgsqlCommand(masukdata, ncon);
-                        ncom.Parameters.Add(new NpgsqlParameter("@year", decimal.Parse(this.cbtahun.Text)));
-                        ncom.Parameters.Add(new NpgsqlParameter("@month", cbbulan.Text));
-
-
-                        ncom.Parameters.Add(new NpgsqlParameter("@amount", decimal.Parse(lbtotgross.Text)));
+                        ncom.Parameters.Add(new NpgsqlParameter("@grossprofitid", cbbulan.Text+cbtahun.Text+a++));
+                        ncom.Parameters.Add(new NpgsqlParameter("@bulan", cbbulan.Text));
+                        ncom.Parameters.Add(new NpgsqlParameter("@tahun", Convert.ToInt32(this.cbtahun.Text)));
+                        ncom.Parameters.Add(new NpgsqlParameter("@earning", jmlearnings));
+                        ncom.Parameters.Add(new NpgsqlParameter("@costs", jmlcash));
+                        ncom.Parameters.Add(new NpgsqlParameter("@grossprofit", totgross));
+                        ncom.Parameters.Add(new NpgsqlParameter("@keterangan", lbket.Text));
+        
 
                         ncon.Open();
                         ncom.ExecuteNonQuery();
@@ -233,7 +257,7 @@ namespace AKUNTING
                 }
             }
 
-              
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -261,6 +285,25 @@ namespace AKUNTING
         {
             string months = DateTime.Now.ToString("MMMM");
             MessageBox.Show(months);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            cetak2 c2 = new cetak2();
+            c2.datereport = lbreportdate.Text;
+            c2.monthprofit = cbbulan.Text;
+            c2.year = Convert.ToInt32(this.cbtahun.Text);
+            c2.earnings = jmlearnings;
+            c2.cost = jmlcash;
+            c2.grossprofit = totgross;
+            c2.keterangan = lbket.Text;
+            c2.MdiParent = this.MdiParent;
+            c2.Show();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            simpandata();
         }
     }
 }
