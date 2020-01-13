@@ -175,7 +175,7 @@ namespace AKUNTING
 
             var sql = "select sum(amount)  from namespace2.account_assets";
             NpgsqlCommand ncom = new NpgsqlCommand(sql, ncon);
-            NpgsqlDataReader dr = ncom.ExecuteReader();
+            NpgsqlDataReader dr = ncom.ExecuteReader();TaskSchedulerException TS;
 
 
             while (dr.Read())
